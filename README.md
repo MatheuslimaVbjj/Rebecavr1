@@ -1,73 +1,68 @@
-# ATLÂNTICO STUDIO — Site Premium v3
+# ATLÂNTICO STUDIO — Site institucional premium
 
-Site institucional/landing page estático, responsivo e pronto para publicação no GitHub Pages.
+Site estático pronto para GitHub Pages.
 
-## Estrutura
+## Arquivos principais
 
-```text
-atlantico-studio-site/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── assets/
-    ├── favicon/
-    ├── images/
-    ├── logo/
-    └── video/
+- `index.html` — estrutura da página
+- `style.css` — identidade visual, responsividade e animações
+- `script.js` — loader, menu mobile, vídeo e formulário
+- `video-options.html` — página para visualizar as 3 opções de vídeo do Hero
+- `assets/logo` — logo, ícone e arquivos visuais da marca
+- `assets/favicon` — favicon do site
+- `assets/video` — vídeo aplicado no Hero
+- `assets/video/options` — 3 opções de vídeos de mar
+- `assets/images` — posters, thumbnails e imagens de apoio
+
+## Vídeo atual do Hero
+
+O site está usando por padrão:
+
+```html
+assets/video/ocean-waves-atlantico.mp4
+```
+
+Esse arquivo é uma cópia da opção 03:
+
+```html
+assets/video/options/ocean-option-03-ondas-batendo.mp4
+```
+
+## Como trocar o vídeo do Hero
+
+No `index.html`, localize:
+
+```html
+<source src="assets/video/ocean-waves-atlantico.mp4" type="video/mp4" />
+```
+
+Troque pelo caminho de uma das opções:
+
+```html
+assets/video/options/ocean-option-01-ondas-aereas.mp4
+assets/video/options/ocean-option-02-mar-profundo.mp4
+assets/video/options/ocean-option-03-ondas-batendo.mp4
+```
+
+Também altere o poster se quiser:
+
+```html
+poster="assets/images/video-thumbs/ocean-option-01-ondas-aereas.jpg"
+poster="assets/images/video-thumbs/ocean-option-02-mar-profundo.jpg"
+poster="assets/images/video-thumbs/ocean-option-03-ondas-batendo.jpg"
 ```
 
 ## Como subir no GitHub Pages
 
 1. Crie um repositório no GitHub.
-2. Envie todos os arquivos deste pacote para a raiz do repositório.
-3. No GitHub, vá em **Settings → Pages**.
-4. Em **Build and deployment**, selecione:
-   - Source: **Deploy from a branch**
-   - Branch: **main**
-   - Folder: **/root**
-5. Clique em **Save**.
-6. Aguarde o link ser gerado pelo GitHub Pages.
+2. Envie todos os arquivos desta pasta para a raiz do repositório.
+3. Vá em **Settings > Pages**.
+4. Em **Build and deployment**, escolha:
+   - Source: `Deploy from a branch`
+   - Branch: `main`
+   - Folder: `/root`
+5. Salve e aguarde o GitHub gerar o link.
 
-## Como editar informações
+## Observação sobre cache
 
-- Textos principais: `index.html`
-- Cores, espaçamentos e responsividade: `style.css`
-- Menu mobile, loading e animações: `script.js`
-- Logo e favicon: `assets/logo/` e `assets/favicon/`
-- Vídeo do hero: `assets/video/ocean-waves-atlantico.mp4`
-- Poster/fallback do hero: `assets/images/ocean-waves-poster.jpg`
-
-## Observação sobre logo
-
-O pacote inclui uma versão vetorial premium editável em SVG/PNG para evitar qualquer asset quebrado. Para trocar pela logo oficial, substitua os arquivos abaixo mantendo os mesmos nomes:
-
-- `assets/logo/logo-atlantico-studio.svg`
-- `assets/logo/logo-atlantico-studio.png`
-- `assets/logo/icon-atlantico.svg`
-- `assets/logo/icon-atlantico.png`
-- `assets/favicon/favicon.ico`
-- `assets/favicon/favicon-32.png`
-- `assets/favicon/apple-touch-icon.png`
-
-## Checklist técnico
-
-- HTML, CSS e JS puros
-- Responsivo e mobile-first
-- Sem dependências externas obrigatórias
-- Loading screen com logo
-- Header fixo com menu mobile
-- Hero com vídeo local de mar em movimento em H.264
-- Tipografia refinada com `clamp()` para desktop, tablet e mobile
-- SEO básico e Open Graph
-- Animações suaves com suporte a `prefers-reduced-motion`
-- Sem scroll horizontal
-
-
-## Atualização v3
-
-- Hero atualizado com vídeo local `assets/video/ocean-waves-atlantico.mp4`, inspirado nas ondas do material visual enviado.
-- Poster do vídeo atualizado em `assets/images/ocean-waves-poster.jpg`.
-- Tipografia do Hero e das seções refinada para desktop, tablet e mobile.
-- Overlay do Hero reduzido para deixar o mar realmente visível sem perder legibilidade.
-- Correções adicionais contra scroll horizontal.
+Se o site antigo continuar aparecendo no Safari depois do upload, abra em janela anônima ou limpe o cache. Em GitHub Pages, às vezes o navegador mantém o vídeo antigo por alguns minutos.
