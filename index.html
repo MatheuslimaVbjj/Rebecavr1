@@ -1,45 +1,294 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atlântico Studio</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATLÂNTICO STUDIO — Marketing, Branding e Presença Digital Premium</title>
+  <meta name="description" content="ATLÂNTICO STUDIO cria marcas, websites, conteúdos e estratégias digitais com estética premium, direção criativa e foco comercial." />
+  <meta name="keywords" content="Atlântico Studio, branding, marketing digital, website, social media, identidade visual, estúdio criativo" />
+  <meta name="author" content="ATLÂNTICO STUDIO" />
+  <meta name="theme-color" content="#031824" />
+  <meta property="og:title" content="ATLÂNTICO STUDIO — Estúdio Criativo Digital" />
+  <meta property="og:description" content="Estratégia, estética e performance para marcas que querem presença digital memorável." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo/logo-atlantico-studio.png" />
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+  <link rel="preload" href="assets/video/ocean-cinematic.mp4" as="video" type="video/mp4" />
+  <link rel="preload" href="assets/logo/logo-atlantico-studio.svg" as="image" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div id="loader">
-  <img src="assets/logo-cinematic.png">
-</div>
-
-<header class="header">
-  <div class="logo">
-    <img src="assets/logo.png">
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-aura"></div>
+    <img class="loader-logo" src="assets/logo/logo-atlantico-studio.svg" alt="ATLÂNTICO STUDIO" />
+    <div class="loader-line"><span></span></div>
+    <p>Carregando experiência</p>
   </div>
-  <nav>
-    <a href="#servicos">Serviços</a>
-    <a href="#eventos">Eventos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </nav>
-</header>
 
-<section class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="assets/ocean.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <h1>Mais do que música. Uma cena.</h1>
-    <p>Produção, eventos e experiências culturais.</p>
-  </div>
-</section>
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#inicio" aria-label="ATLÂNTICO STUDIO - Início">
+      <img src="assets/logo/logo-atlantico-studio.svg" alt="ATLÂNTICO STUDIO" />
+    </a>
 
-<section id="eventos">
-<h2>Eventos</h2>
-</section>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
 
-<script src="script.js"></script>
+    <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
+      <a href="#posicionamento">Posicionamento</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Processo</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato" class="nav-cta">Orçamento</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-label="Apresentação ATLÂNTICO STUDIO">
+      <video class="hero-video" autoplay muted loop playsinline poster="assets/images/ocean-poster.svg">
+        <source src="assets/video/ocean-cinematic.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Marketing • Vendas • Branding</span>
+          <h1>Marcas profundas não aparecem. Elas emergem.</h1>
+          <p class="hero-lead">
+            A ATLÂNTICO STUDIO cria presença digital premium para negócios que precisam de estética, estratégia e conversão trabalhando na mesma direção.
+          </p>
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
+            <a href="#servicos" class="btn btn-ghost">Ver soluções</a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Resumo estratégico">
+          <span class="card-kicker">Estúdio criativo digital</span>
+          <strong>Branding, sites e campanhas com acabamento de agência internacional.</strong>
+          <p>Da identidade visual à landing page, do conteúdo ao funil, tudo é pensado para transformar percepção em desejo e desejo em ação.</p>
+          <div class="metric-row">
+            <div><b>01</b><span>Direção premium</span></div>
+            <div><b>02</b><span>Execução digital</span></div>
+            <div><b>03</b><span>Crescimento comercial</span></div>
+          </div>
+        </aside>
+      </div>
+      <a href="#posicionamento" class="scroll-cue" aria-label="Rolar para próxima seção"><span></span></a>
+    </section>
+
+    <section class="section positioning" id="posicionamento">
+      <div class="container split-layout">
+        <div class="section-copy reveal">
+          <span class="eyebrow">Posicionamento</span>
+          <h2>Um estúdio para marcas que querem parecer maiores, vender melhor e comunicar com autoridade.</h2>
+        </div>
+        <div class="statement-panel reveal">
+          <p>
+            Não desenvolvemos apenas peças bonitas. Construímos sistemas de presença: narrativa, visual, oferta, página, conteúdo e jornada. Cada detalhe existe para reforçar valor, confiança e intenção de compra.
+          </p>
+          <ul class="clean-list">
+            <li>Estratégia antes da estética.</li>
+            <li>Design com atmosfera, ritmo e hierarquia.</li>
+            <li>Comunicação orientada a venda, não apenas visibilidade.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Serviços</span>
+          <h2>Soluções digitais com profundidade visual e precisão comercial.</h2>
+          <p>Cada entrega é desenhada para elevar percepção, organizar a mensagem e facilitar a decisão do cliente.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span>01</span>
+            <h3>Branding & Identidade</h3>
+            <p>Direção visual, paleta, tipografia, linguagem, posicionamento e presença de marca com padrão premium.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>02</span>
+            <h3>Sites & Landing Pages</h3>
+            <p>Páginas institucionais e landing pages responsivas, rápidas, elegantes e pensadas para conversão.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>03</span>
+            <h3>Social Media Premium</h3>
+            <p>Planejamento, copy, direção de conteúdo e artes para uma presença consistente, sofisticada e memorável.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>04</span>
+            <h3>Tráfego & Growth</h3>
+            <p>Campanhas, funis, criativos e otimização contínua para transformar atenção em oportunidade comercial.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>05</span>
+            <h3>Conteúdo Cinematográfico</h3>
+            <p>Conceitos, roteiros, captação e direção visual para marcas que precisam de impacto e diferenciação.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>06</span>
+            <h3>Direção Criativa</h3>
+            <p>Consultoria visual e estratégica para campanhas, lançamentos, reposicionamentos e comunicação institucional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section advantages" aria-label="Diferenciais">
+      <div class="container split-layout inverted">
+        <div class="feature-stack reveal">
+          <div class="feature-item">
+            <b>01</b>
+            <div><h3>Atmosfera de marca</h3><p>Construímos uma sensação visual reconhecível, não apenas um layout bonito.</p></div>
+          </div>
+          <div class="feature-item">
+            <b>02</b>
+            <div><h3>Copy que posiciona</h3><p>Textos com clareza, força e intenção comercial para guiar a decisão.</p></div>
+          </div>
+          <div class="feature-item">
+            <b>03</b>
+            <div><h3>Execução responsiva</h3><p>Mobile-first, sem scroll horizontal, com performance e experiência fluida.</p></div>
+          </div>
+        </div>
+        <div class="section-copy reveal">
+          <span class="eyebrow">Diferenciais</span>
+          <h2>Design que cria valor antes mesmo da primeira conversa.</h2>
+          <p>O cliente julga a marca em segundos. Nossa função é fazer esses segundos trabalharem a seu favor: estética, velocidade, confiança e clareza.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="processo">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Processo</span>
+          <h2>Da imersão ao lançamento, tudo segue uma direção clara.</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-step reveal">
+            <span>01</span><h3>Imersão</h3><p>Entendimento do negócio, público, oferta, concorrência, estética desejada e objetivo comercial.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span>02</span><h3>Estratégia</h3><p>Definição de narrativa, estrutura, promessa central, jornada e hierarquia da mensagem.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span>03</span><h3>Criação</h3><p>Design, copy, páginas, assets, identidade e refinamento visual com acabamento premium.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span>04</span><h3>Lançamento</h3><p>Publicação, testes responsivos, otimização básica, SEO inicial e ajustes finais de performance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projetos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Projetos selecionados</span>
+          <h2>Visual de alto impacto para marcas que não querem parecer comuns.</h2>
+          <p>Cards demonstrativos preparados para receber cases reais da ATLÂNTICO STUDIO.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <img src="assets/images/case-horizon.svg" alt="Projeto de branding premium" loading="lazy" />
+            <div><span>Branding</span><h3>Identidade com presença</h3><p>Sistema visual para uma marca costeira com linguagem sofisticada e memorável.</p></div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/images/case-depth.svg" alt="Projeto de landing page premium" loading="lazy" />
+            <div><span>Website</span><h3>Landing page de conversão</h3><p>Arquitetura de página, copy e interface para aumentar percepção de valor.</p></div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/images/case-signal.svg" alt="Projeto de conteúdo digital" loading="lazy" />
+            <div><span>Conteúdo</span><h3>Campanha social premium</h3><p>Direção criativa, narrativa visual e peças para redes sociais com unidade estética.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-label="Chamada para orçamento">
+      <div class="container cta-inner reveal">
+        <span class="eyebrow">Pronto para emergir?</span>
+        <h2>Transforme sua marca em uma experiência que o cliente sente antes de comprar.</h2>
+        <a href="#contato" class="btn btn-primary">Começar projeto</a>
+      </div>
+    </section>
+
+    <section class="section contact" id="contato">
+      <div class="container contact-grid">
+        <div class="section-copy reveal">
+          <span class="eyebrow">Contato</span>
+          <h2>Conte sobre o projeto. A ATLÂNTICO STUDIO cuida da direção.</h2>
+          <p>Envie um briefing rápido com o que sua marca precisa: identidade, site, campanha, redes sociais ou uma presença digital completa.</p>
+          <div class="contact-links">
+            <a href="https://www.instagram.com/atlanticostudioo/" target="_blank" rel="noopener">Instagram @atlanticostudioo</a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <label>
+            <span>Nome</span>
+            <input type="text" name="name" placeholder="Seu nome" required />
+          </label>
+          <label>
+            <span>WhatsApp ou e-mail</span>
+            <input type="text" name="contact" placeholder="Como podemos falar com você?" required />
+          </label>
+          <label>
+            <span>O que você precisa?</span>
+            <select name="service" required>
+              <option value="">Selecione uma opção</option>
+              <option>Branding / Identidade Visual</option>
+              <option>Site / Landing Page</option>
+              <option>Social Media</option>
+              <option>Tráfego / Campanhas</option>
+              <option>Projeto completo</option>
+            </select>
+          </label>
+          <label>
+            <span>Mensagem</span>
+            <textarea name="message" rows="5" placeholder="Fale sobre o objetivo, prazo e estilo desejado."></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Gerar mensagem</button>
+          <p class="form-note" id="formNote">O formulário cria uma mensagem pronta para enviar pelo seu canal preferido.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/logo/logo-atlantico-studio.svg" alt="ATLÂNTICO STUDIO" class="footer-logo" />
+        <p>Estúdio criativo digital para marcas que querem presença, profundidade e direção.</p>
+      </div>
+      <div>
+        <h3>Mapa</h3>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div>
+        <h3>Social</h3>
+        <a href="https://www.instagram.com/atlanticostudioo/" target="_blank" rel="noopener">Instagram</a>
+        <a href="#contato">Solicitar orçamento</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© <span id="year"></span> ATLÂNTICO STUDIO. Todos os direitos reservados.</span>
+      <span>Design oceânico • Navy • Gold • Digital</span>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

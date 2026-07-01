@@ -1,0 +1,26 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="sun" cx="50%" cy="38%" r="45%">
+      <stop offset="0" stop-color="#D6B25A" stop-opacity="0.45"/>
+      <stop offset="0.35" stop-color="#0E5163" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#020B11" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1000">
+      <stop offset="0" stop-color="#041925"/>
+      <stop offset="0.55" stop-color="#062B3B"/>
+      <stop offset="1" stop-color="#02070B"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="430" x2="1600" y2="940">
+      <stop offset="0" stop-color="#0A3446"/>
+      <stop offset="0.5" stop-color="#0E6672"/>
+      <stop offset="1" stop-color="#031018"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#sun)"/>
+  <circle cx="800" cy="360" r="120" fill="#CDA85A" opacity="0.18" filter="url(#blur)"/>
+  <path d="M0 565C170 516 262 550 410 585C598 630 732 539 890 563C1070 591 1243 678 1600 558V1000H0V565Z" fill="url(#water)" opacity="0.95"/>
+  <path d="M0 650C226 594 369 632 520 668C728 718 893 607 1056 643C1261 689 1410 716 1600 638" stroke="#D9C174" stroke-opacity="0.18" stroke-width="8"/>
+  <path d="M0 745C222 703 353 726 509 759C723 805 880 715 1042 742C1244 775 1418 789 1600 731" stroke="#E7D18C" stroke-opacity="0.11" stroke-width="5"/>
+</svg>
