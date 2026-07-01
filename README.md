@@ -4,65 +4,52 @@ Site estático pronto para GitHub Pages.
 
 ## Arquivos principais
 
-- `index.html` — estrutura da página
-- `style.css` — identidade visual, responsividade e animações
-- `script.js` — loader, menu mobile, vídeo e formulário
-- `video-options.html` — página para visualizar as 3 opções de vídeo do Hero
-- `assets/logo` — logo, ícone e arquivos visuais da marca
-- `assets/favicon` — favicon do site
-- `assets/video` — vídeo aplicado no Hero
-- `assets/video/options` — 3 opções de vídeos de mar
-- `assets/images` — posters, thumbnails e imagens de apoio
+- `index.html` — página principal
+- `style.css` — estilos, responsividade e background cinematográfico
+- `script.js` — loading, menu mobile, animações e formulário
+- `assets/logo` — logo e ícone
+- `assets/favicon` — favicon e Apple Touch Icon
+- `assets/video/ocean-full-site-bg.mp4` — vídeo principal do oceano usado no Hero e no fundo do site inteiro
+- `assets/images/ocean-full-site-poster.jpg` — imagem de fallback antes do vídeo carregar
 
-## Vídeo atual do Hero
+## O que mudou nesta versão
 
-O site está usando por padrão:
+- O site inteiro usa um vídeo de oceano com águas/ondas em movimento como fundo fixo.
+- O Hero também usa o mesmo vídeo, com overlay reduzido para o mar aparecer mais.
+- As seções internas foram refinadas com glassmorphism leve, menos aparência genérica e mais acabamento de agência.
+- Títulos e textos foram reduzidos para melhor leitura em desktop, tablet e mobile.
+- O código inclui parâmetros de cache no vídeo (`?v=5`) para evitar que o Safari/GitHub Pages continue exibindo a versão antiga.
 
-```html
-assets/video/ocean-waves-atlantico.mp4
-```
+## Como publicar no GitHub Pages
 
-Esse arquivo é uma cópia da opção 03:
+1. Extraia o ZIP.
+2. Envie todos os arquivos da pasta para o repositório.
+3. No GitHub, vá em **Settings > Pages**.
+4. Em **Branch**, selecione `main` e `/root`.
+5. Salve e aguarde a publicação.
 
-```html
-assets/video/options/ocean-option-03-ondas-batendo.mp4
-```
+## Importante sobre cache
 
-## Como trocar o vídeo do Hero
+Se o navegador ainda mostrar uma versão antiga, faça uma atualização forçada:
 
-No `index.html`, localize:
+- Safari no Mac: `Option + Command + R`
+- Chrome/Edge: `Ctrl + Shift + R` ou `Command + Shift + R`
+- Também vale abrir em janela anônima.
 
-```html
-<source src="assets/video/ocean-waves-atlantico.mp4" type="video/mp4" />
-```
+## Personalização rápida
 
-Troque pelo caminho de uma das opções:
+Para trocar o vídeo do oceano:
 
-```html
-assets/video/options/ocean-option-01-ondas-aereas.mp4
-assets/video/options/ocean-option-02-mar-profundo.mp4
-assets/video/options/ocean-option-03-ondas-batendo.mp4
-```
-
-Também altere o poster se quiser:
+1. Coloque o novo MP4 em `assets/video/`.
+2. No `index.html`, altere os dois trechos:
 
 ```html
-poster="assets/images/video-thumbs/ocean-option-01-ondas-aereas.jpg"
-poster="assets/images/video-thumbs/ocean-option-02-mar-profundo.jpg"
-poster="assets/images/video-thumbs/ocean-option-03-ondas-batendo.jpg"
+<source src="assets/video/ocean-full-site-bg.mp4?v=5" type="video/mp4" />
 ```
 
-## Como subir no GitHub Pages
+Para trocar a logo:
 
-1. Crie um repositório no GitHub.
-2. Envie todos os arquivos desta pasta para a raiz do repositório.
-3. Vá em **Settings > Pages**.
-4. Em **Build and deployment**, escolha:
-   - Source: `Deploy from a branch`
-   - Branch: `main`
-   - Folder: `/root`
-5. Salve e aguarde o GitHub gerar o link.
+- Substitua `assets/logo/logo-atlantico-studio.svg`
+- Substitua `assets/logo/logo-atlantico-studio.png`
+- Substitua os arquivos em `assets/favicon`
 
-## Observação sobre cache
-
-Se o site antigo continuar aparecendo no Safari depois do upload, abra em janela anônima ou limpe o cache. Em GitHub Pages, às vezes o navegador mantém o vídeo antigo por alguns minutos.

@@ -6,6 +6,7 @@ const year = document.getElementById('year');
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 const heroVideo = document.getElementById('heroVideo');
+const siteOceanVideo = document.getElementById('siteOceanVideo');
 
 document.body.classList.add('no-scroll');
 
@@ -19,17 +20,32 @@ setTimeout(hideLoader, 2400);
 
 if (year) year.textContent = new Date().getFullYear();
 
-const startHeroVideo = () => {
-  if (!heroVideo) return;
-  heroVideo.muted = true;
-  heroVideo.playsInline = true;
-  const playPromise = heroVideo.play();
-  if (playPromise?.catch) playPromise.catch(() => heroVideo.classList.add('video-fallback'));
+const startVideo = (video) => {
+  if (!video) return;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  const playPromise = video.play();
+  if (playPromise?.then) {
+    playPromise
+      .then(() => document.body.classList.add('video-live'))
+      .catch(() => {
+        video.classList.add('video-fallback');
+        document.body.classList.add('video-fallback');
+      });
+  }
 };
 
-document.addEventListener('DOMContentLoaded', startHeroVideo, { once: true });
-window.addEventListener('pageshow', startHeroVideo);
-document.addEventListener('touchstart', startHeroVideo, { once: true, passive: true });
+const startAllVideos = () => {
+  startVideo(siteOceanVideo);
+  startVideo(heroVideo);
+};
+
+document.addEventListener('DOMContentLoaded', startAllVideos, { once: true });
+window.addEventListener('pageshow', startAllVideos);
+document.addEventListener('touchstart', startAllVideos, { once: true, passive: true });
 
 const setHeaderState = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
 setHeaderState();

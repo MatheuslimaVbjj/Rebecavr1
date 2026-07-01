@@ -11,13 +11,13 @@
   <meta property="og:title" content="ATLÂNTICO STUDIO — Estúdio Criativo Digital" />
   <meta property="og:description" content="Conectamos ideias. Transformamos marcas." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/images/ocean-waves-poster.jpg" />
+  <meta property="og:image" content="assets/images/ocean-full-site-poster.jpg" />
   <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon/favicon-32.png" />
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
   <link rel="preload" href="assets/logo/logo-atlantico-studio.svg" as="image" />
-  <link rel="preload" href="assets/images/ocean-waves-poster.jpg" as="image" />
-  <link rel="preload" href="assets/video/ocean-waves-atlantico.mp4" as="video" type="video/mp4" />
+  <link rel="preload" href="assets/images/ocean-full-site-poster.jpg" as="image" />
+  <link rel="preload" href="assets/video/ocean-full-site-bg.mp4" as="video" type="video/mp4" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -26,6 +26,13 @@
     <img src="assets/logo/logo-atlantico-studio.svg" alt="ATLÂNTICO STUDIO" class="loader-logo" />
     <div class="loader-progress"><span></span></div>
     <p>Experiência Atlântico</p>
+  </div>
+
+  <div class="ocean-backdrop" aria-hidden="true">
+    <video class="site-ocean-video" id="siteOceanVideo" autoplay muted loop playsinline preload="auto" poster="assets/images/ocean-full-site-poster.jpg">
+      <source src="assets/video/ocean-full-site-bg.mp4?v=5" type="video/mp4" />
+    </video>
+    <div class="ocean-backdrop-overlay"></div>
   </div>
 
   <header class="site-header" id="siteHeader">
@@ -48,8 +55,8 @@
 
   <main>
     <section class="hero" id="inicio">
-      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/images/ocean-waves-poster.jpg">
-        <source src="assets/video/ocean-waves-atlantico.mp4" type="video/mp4" />
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/images/ocean-full-site-poster.jpg">
+        <source src="assets/video/ocean-full-site-bg.mp4?v=5" type="video/mp4" />
       </video>
       <div class="hero-scrim"></div>
       <div class="hero-grain" aria-hidden="true"></div>
