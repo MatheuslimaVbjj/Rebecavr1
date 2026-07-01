@@ -1,4 +1,4 @@
-# ATLÂNTICO STUDIO — Site Premium v2
+# ATLÂNTICO STUDIO — Site Premium v3
 
 Site institucional/landing page estático, responsivo e pronto para publicação no GitHub Pages.
 
@@ -35,8 +35,8 @@ atlantico-studio-site/
 - Cores, espaçamentos e responsividade: `style.css`
 - Menu mobile, loading e animações: `script.js`
 - Logo e favicon: `assets/logo/` e `assets/favicon/`
-- Vídeo do hero: `assets/video/ocean-cinematic.mp4`
-- Poster/fallback do hero: `assets/images/ocean-poster.jpg`
+- Vídeo do hero: `assets/video/ocean-waves-atlantico.mp4`
+- Poster/fallback do hero: `assets/images/ocean-waves-poster.jpg`
 
 ## Observação sobre logo
 
@@ -62,3 +62,12 @@ O pacote inclui uma versão vetorial premium editável em SVG/PNG para evitar qu
 - SEO básico e Open Graph
 - Animações suaves com suporte a `prefers-reduced-motion`
 - Sem scroll horizontal
+
+
+## Atualização v3
+
+- Hero atualizado com vídeo local `assets/video/ocean-waves-atlantico.mp4`, inspirado nas ondas do material visual enviado.
+- Poster do vídeo atualizado em `assets/images/ocean-waves-poster.jpg`.
+- Tipografia do Hero e das seções refinada para desktop, tablet e mobile.
+- Overlay do Hero reduzido para deixar o mar realmente visível sem perder legibilidade.
+- Correções adicionais contra scroll horizontal.

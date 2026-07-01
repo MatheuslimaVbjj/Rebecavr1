@@ -6,6 +6,24 @@ const year = document.getElementById('year');
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 
+
+// Força o vídeo do hero a iniciar em navegadores mais rígidos com autoplay.
+// Se o navegador bloquear, o poster oceânico permanece como fallback visual.
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.playsInline = true;
+  const startHeroVideo = () => {
+    const playPromise = heroVideo.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => heroVideo.classList.add('video-fallback'));
+    }
+  };
+  document.addEventListener('DOMContentLoaded', startHeroVideo, { once: true });
+  window.addEventListener('pageshow', startHeroVideo);
+}
+
+
 year.textContent = new Date().getFullYear();
 
 document.body.classList.add('no-scroll');
