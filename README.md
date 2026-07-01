@@ -1,4 +1,4 @@
-# ATLÂNTICO STUDIO — Site Premium
+# ATLÂNTICO STUDIO — Site Premium v2
 
 Site institucional/landing page estático, responsivo e pronto para publicação no GitHub Pages.
 
@@ -36,6 +36,7 @@ atlantico-studio-site/
 - Menu mobile, loading e animações: `script.js`
 - Logo e favicon: `assets/logo/` e `assets/favicon/`
 - Vídeo do hero: `assets/video/ocean-cinematic.mp4`
+- Poster/fallback do hero: `assets/images/ocean-poster.jpg`
 
 ## Observação sobre logo
 
@@ -56,7 +57,8 @@ O pacote inclui uma versão vetorial premium editável em SVG/PNG para evitar qu
 - Sem dependências externas obrigatórias
 - Loading screen com logo
 - Header fixo com menu mobile
-- Hero com vídeo local de mar em movimento
+- Hero com vídeo local de mar em movimento em H.264
+- Tipografia refinada com `clamp()` para desktop, tablet e mobile
 - SEO básico e Open Graph
 - Animações suaves com suporte a `prefers-reduced-motion`
 - Sem scroll horizontal
