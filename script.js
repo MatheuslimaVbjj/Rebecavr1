@@ -5,8 +5,8 @@ const siteNav = document.getElementById('siteNav');
 const year = document.getElementById('year');
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
-const heroVideo = document.getElementById('heroVideo');
 const siteOceanVideo = document.getElementById('siteOceanVideo');
+const videoActivate = document.getElementById('videoActivate');
 
 document.body.classList.add('no-scroll');
 
@@ -15,37 +15,61 @@ const hideLoader = () => {
   document.body.classList.remove('no-scroll');
 };
 
-window.addEventListener('load', () => setTimeout(hideLoader, 850));
-setTimeout(hideLoader, 2400);
+window.addEventListener('load', () => setTimeout(hideLoader, 700));
+setTimeout(hideLoader, 2200);
 
 if (year) year.textContent = new Date().getFullYear();
 
-const startVideo = (video) => {
-  if (!video) return;
-  video.muted = true;
-  video.defaultMuted = true;
-  video.playsInline = true;
-  video.setAttribute('muted', '');
-  video.setAttribute('playsinline', '');
-  const playPromise = video.play();
-  if (playPromise?.then) {
-    playPromise
-      .then(() => document.body.classList.add('video-live'))
-      .catch(() => {
-        video.classList.add('video-fallback');
-        document.body.classList.add('video-fallback');
-      });
+const markVideoPlaying = () => {
+  document.body.classList.add('video-playing');
+  document.body.classList.remove('video-needs-interaction');
+};
+
+const markVideoNeedsInteraction = () => {
+  if (!siteOceanVideo || document.body.classList.contains('video-playing')) return;
+  document.body.classList.add('video-needs-interaction');
+};
+
+const startVideo = async () => {
+  if (!siteOceanVideo) return;
+
+  siteOceanVideo.muted = true;
+  siteOceanVideo.defaultMuted = true;
+  siteOceanVideo.playsInline = true;
+  siteOceanVideo.setAttribute('muted', '');
+  siteOceanVideo.setAttribute('playsinline', '');
+  siteOceanVideo.setAttribute('webkit-playsinline', '');
+
+  try {
+    siteOceanVideo.load();
+    const playPromise = siteOceanVideo.play();
+    if (playPromise?.then) await playPromise;
+    markVideoPlaying();
+  } catch (error) {
+    markVideoNeedsInteraction();
   }
 };
 
-const startAllVideos = () => {
-  startVideo(siteOceanVideo);
-  startVideo(heroVideo);
-};
+siteOceanVideo?.addEventListener('playing', markVideoPlaying);
+siteOceanVideo?.addEventListener('canplay', startVideo, { once: true });
+siteOceanVideo?.addEventListener('pause', () => {
+  if (!document.hidden) markVideoNeedsInteraction();
+});
+siteOceanVideo?.addEventListener('error', () => {
+  document.body.classList.remove('video-playing');
+  markVideoNeedsInteraction();
+});
 
-document.addEventListener('DOMContentLoaded', startAllVideos, { once: true });
-window.addEventListener('pageshow', startAllVideos);
-document.addEventListener('touchstart', startAllVideos, { once: true, passive: true });
+const startVideoFromGesture = () => startVideo();
+document.addEventListener('DOMContentLoaded', startVideo, { once: true });
+window.addEventListener('pageshow', startVideo);
+document.addEventListener('touchstart', startVideoFromGesture, { once: true, passive: true });
+document.addEventListener('pointerdown', startVideoFromGesture, { once: true, passive: true });
+document.addEventListener('keydown', startVideoFromGesture, { once: true });
+videoActivate?.addEventListener('click', startVideo);
+setTimeout(() => {
+  if (siteOceanVideo && (siteOceanVideo.paused || siteOceanVideo.readyState < 2)) markVideoNeedsInteraction();
+}, 1800);
 
 const setHeaderState = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
 setHeaderState();
