@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /video-test.html
+Disallow: /video-options.html
+
+Sitemap: https://atlanticostudio.pt/sitemap.xml
