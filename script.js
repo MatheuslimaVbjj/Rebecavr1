@@ -106,20 +106,30 @@ document.querySelectorAll('.reveal').forEach((el, index) => {
   observer.observe(el);
 });
 
-contactForm?.addEventListener('submit', (event) => {
+contactForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
+  const submitButton = contactForm.querySelector('button[type="submit"]');
   const data = new FormData(contactForm);
-  const name = String(data.get('name') || '').trim();
-  const contact = String(data.get('contact') || '').trim();
-  const service = String(data.get('service') || '').trim();
-  const message = String(data.get('message') || '').trim();
-  const briefing = `Olá, ATLÂNTICO STUDIO. Meu nome é ${name}. Tenho interesse em ${service}. Meu contato é ${contact}.${message ? ` Briefing: ${message}` : ''}`;
 
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(briefing).then(() => {
-      formNote.textContent = 'Mensagem copiada. Agora é só colar no Instagram, WhatsApp ou e-mail da ATLÂNTICO STUDIO.';
-    }).catch(() => { formNote.textContent = briefing; });
-  } else {
-    formNote.textContent = briefing;
+  formNote.textContent = 'Enviando...';
+  submitButton?.setAttribute('disabled', '');
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' },
+    });
+
+    if (response.ok) {
+      formNote.textContent = 'Mensagem enviada! A equipe da ATLÂNTICO STUDIO vai responder em breve.';
+      contactForm.reset();
+    } else {
+      formNote.textContent = 'Não foi possível enviar agora. Tente novamente ou fale direto pelo e-mail/Instagram acima.';
+    }
+  } catch (error) {
+    formNote.textContent = 'Não foi possível enviar agora. Tente novamente ou fale direto pelo e-mail/Instagram acima.';
+  } finally {
+    submitButton?.removeAttribute('disabled');
   }
 });
