@@ -16,8 +16,8 @@ const hideLoader = () => {
   document.body.classList.remove('no-scroll');
 };
 
-window.addEventListener('load', () => setTimeout(hideLoader, 700));
-setTimeout(hideLoader, 2200);
+window.addEventListener('load', hideLoader);
+setTimeout(hideLoader, 1200);
 
 if (year) year.textContent = new Date().getFullYear();
 
