@@ -92,6 +92,29 @@ menuToggle?.addEventListener('click', () => {
   document.body.classList.toggle('no-scroll', open);
 });
 
+const heroPanel = document.querySelector('.hero-panel');
+const heroGrid = document.querySelector('.hero-grid');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouch = window.matchMedia('(hover: none)').matches;
+
+if (heroPanel && heroGrid && !reducedMotion && !isTouch) {
+  heroGrid.addEventListener('mousemove', (event) => {
+    const rect = heroPanel.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    heroPanel.style.setProperty('--tilt-y', `${(x - 0.5) * 14}deg`);
+    heroPanel.style.setProperty('--tilt-x', `${(0.5 - y) * 14}deg`);
+    heroPanel.style.setProperty('--glow-x', `${x * 100}%`);
+    heroPanel.style.setProperty('--glow-y', `${y * 100}%`);
+    heroPanel.style.setProperty('--glow-o', '1');
+  });
+  heroGrid.addEventListener('mouseleave', () => {
+    heroPanel.style.setProperty('--tilt-x', '0deg');
+    heroPanel.style.setProperty('--tilt-y', '0deg');
+    heroPanel.style.setProperty('--glow-o', '0');
+  });
+}
+
 navBackdrop?.addEventListener('click', closeMenu);
 document.querySelectorAll('.site-nav a').forEach((link) => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });

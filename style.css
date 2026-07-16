@@ -209,7 +209,34 @@ p { color: var(--sand-soft); line-height: 1.72; }
 .btn:hover { transform: translateY(-2px); }
 .btn-primary { color: #03111a; background: linear-gradient(135deg, var(--gold-2), var(--gold)); box-shadow: 0 18px 42px rgba(202,164,93,.23); }
 .btn-secondary { color: var(--sand); background: rgba(255,255,255,.04); border-color: rgba(243,234,213,.24); }
-.hero-panel { max-width: 430px; padding: clamp(24px, 3.2vw, 34px); border: 1px solid rgba(242,210,117,.24); border-radius: var(--radius); background: linear-gradient(180deg, rgba(3,20,30,.72), rgba(2,8,13,.54)); box-shadow: var(--shadow); backdrop-filter: blur(15px); }
+.hero-panel {
+  position: relative;
+  max-width: 430px;
+  padding: clamp(24px, 3.2vw, 34px);
+  border: 1px solid rgba(242,210,117,.24);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(3,20,30,.72), rgba(2,8,13,.54));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(15px);
+  perspective: 1400px;
+}
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 0%), rgba(242,210,117,.16), transparent 55%);
+  opacity: var(--glow-o, 0);
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+.hero-panel-inner {
+  position: relative;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform .4s cubic-bezier(.22,1,.36,1);
+  will-change: transform;
+}
 .hero-panel span { display: block; margin-bottom: 18px; color: var(--gold-2); font-size: .7rem; font-weight: 850; letter-spacing: .23em; text-transform: uppercase; }
 .hero-panel h2 { margin-bottom: 14px; font-size: clamp(1.45rem, 2vw, 1.86rem); line-height: 1.08; }
 .hero-panel p { font-size: .92rem; line-height: 1.65; }
