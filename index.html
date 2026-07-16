@@ -18,7 +18,7 @@
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
   <link rel="preload" href="assets/logo/logo-atlantico-studio.svg" as="image" />
   <link rel="preload" href="assets/video/ocean-real-waves-bg.mp4" as="video" type="video/mp4" />
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=8" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,6 +50,8 @@
 
   <button class="video-activate" id="videoActivate" type="button" aria-label="Ativar vídeo do oceano">Ativar vídeo</button>
 
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
   <header class="site-header" id="siteHeader">
     <a href="#inicio" class="brand" aria-label="ATLÂNTICO STUDIO - página inicial">
       <img src="assets/logo/logo-atlantico-studio.svg" alt="ATLÂNTICO STUDIO" />
@@ -60,11 +62,11 @@
     </button>
 
     <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
-      <a href="#posicionamento">Posicionamento</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#metodo">Método</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato" class="nav-button">Orçamento</a>
+      <a href="#posicionamento" data-nav-link>Posicionamento</a>
+      <a href="#servicos" data-nav-link>Serviços</a>
+      <a href="#metodo" data-nav-link>Método</a>
+      <a href="#projetos" data-nav-link>Projetos</a>
+      <a href="#contato" class="nav-button" data-nav-link>Orçamento</a>
     </nav>
   </header>
 
@@ -262,6 +264,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@ const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 const siteOceanVideo = document.getElementById('siteOceanVideo');
 const videoActivate = document.getElementById('videoActivate');
+const navBackdrop = document.getElementById('navBackdrop');
 
 document.body.classList.add('no-scroll');
 
@@ -78,6 +79,7 @@ window.addEventListener('scroll', setHeaderState, { passive: true });
 const closeMenu = () => {
   menuToggle?.classList.remove('is-open');
   siteNav?.classList.remove('is-open');
+  navBackdrop?.classList.remove('is-open');
   menuToggle?.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('no-scroll');
 };
@@ -85,12 +87,30 @@ const closeMenu = () => {
 menuToggle?.addEventListener('click', () => {
   const open = menuToggle.classList.toggle('is-open');
   siteNav.classList.toggle('is-open', open);
+  navBackdrop?.classList.toggle('is-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
   document.body.classList.toggle('no-scroll', open);
 });
 
+navBackdrop?.addEventListener('click', closeMenu);
 document.querySelectorAll('.site-nav a').forEach((link) => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+
+const navLinks = document.querySelectorAll('[data-nav-link]');
+const spySections = Array.from(navLinks)
+  .map((link) => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+const setActiveLink = (id) => {
+  navLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`));
+};
+
+const spyObserver = new IntersectionObserver((entries) => {
+  const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (visible) setActiveLink(visible.target.id);
+}, { rootMargin: '-110px 0px -55% 0px', threshold: 0 });
+
+spySections.forEach((section) => spyObserver.observe(section));
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
