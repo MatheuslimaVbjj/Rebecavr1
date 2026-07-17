@@ -11,13 +11,21 @@ const navBackdrop = document.getElementById('navBackdrop');
 
 document.body.classList.add('no-scroll');
 
+const loaderStart = Date.now();
+const LOADER_MIN_MS = 2400;
+
 const hideLoader = () => {
   pageLoader?.classList.add('is-hidden');
   document.body.classList.remove('no-scroll');
 };
 
-window.addEventListener('load', hideLoader);
-setTimeout(hideLoader, 1200);
+const hideLoaderAfterMin = () => {
+  const elapsed = Date.now() - loaderStart;
+  setTimeout(hideLoader, Math.max(0, LOADER_MIN_MS - elapsed));
+};
+
+window.addEventListener('load', hideLoaderAfterMin);
+setTimeout(hideLoaderAfterMin, 4000);
 
 if (year) year.textContent = new Date().getFullYear();
 
