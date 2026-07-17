@@ -449,6 +449,10 @@ p { color: var(--sand-soft); line-height: 1.72; }
   .ocean-backdrop-overlay { background: linear-gradient(180deg, rgba(3,10,22,.38), rgba(3,10,22,.68)), linear-gradient(90deg, rgba(3,10,22,.42), rgba(3,10,22,.22)); }
   .hero { min-height: 94svh; padding-top: calc(var(--header) + 42px); }
   .hero-grid { gap: 26px; }
+  .hero-copy { display: grid; justify-items: center; text-align: center; }
+  .hero-copy h1 { max-width: 640px; }
+  .hero-copy p { margin-inline: auto; }
+  .hero-actions { justify-content: center; }
   .hero-panel { padding: 22px; }
   .panel-points { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
