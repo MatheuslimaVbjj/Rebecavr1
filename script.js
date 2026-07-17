@@ -123,6 +123,20 @@ if (heroPanel && heroGrid && !reducedMotion && !isTouch) {
   });
 }
 
+if (!reducedMotion && !isTouch) {
+  document.querySelectorAll('.btn-primary').forEach((btn) => {
+    btn.addEventListener('mousemove', (event) => {
+      const rect = btn.getBoundingClientRect();
+      const x = event.clientX - rect.left - rect.width / 2;
+      const y = event.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+}
+
 navBackdrop?.addEventListener('click', closeMenu);
 document.querySelectorAll('.site-nav a').forEach((link) => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
