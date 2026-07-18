@@ -137,6 +137,40 @@ if (!reducedMotion && !isTouch) {
   });
 }
 
+if (!reducedMotion && !isTouch) {
+  document.querySelectorAll('.btn-magnetic').forEach((btn) => {
+    const glow = btn.querySelector('.mag-glow');
+    const chars = btn.querySelectorAll('.mag-ch');
+    btn.addEventListener('mousemove', (event) => {
+      const rect = btn.getBoundingClientRect();
+      const relX = event.clientX - rect.left;
+      const relY = event.clientY - rect.top;
+      glow?.style.setProperty('--gx', `${(relX / rect.width) * 100}%`);
+      glow?.style.setProperty('--gy', `${(relY / rect.height) * 100}%`);
+
+      const cx = relX - rect.width / 2;
+      const cy = relY - rect.height / 2;
+      btn.style.transform = `translate(${cx * 0.18}px, ${cy * 0.35}px)`;
+
+      chars.forEach((ch) => {
+        const chRect = ch.getBoundingClientRect();
+        const chCenter = chRect.left + chRect.width / 2 - rect.left;
+        const dist = Math.abs(relX - chCenter);
+        const lift = Math.max(0, 1 - dist / 90);
+        ch.style.transform = `translateY(${-lift * 5}px)`;
+        ch.style.color = lift > 0.4 ? 'var(--gold-2)' : '';
+      });
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+      chars.forEach((ch) => {
+        ch.style.transform = 'translateY(0)';
+        ch.style.color = '';
+      });
+    });
+  });
+}
+
 navBackdrop?.addEventListener('click', closeMenu);
 document.querySelectorAll('.site-nav a').forEach((link) => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });

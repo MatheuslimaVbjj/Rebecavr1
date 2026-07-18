@@ -261,6 +261,30 @@ p { color: var(--sand-soft); line-height: 1.72; }
   will-change: transform;
 }
 .btn-primary:hover { background: var(--gold-2); box-shadow: 0 18px 38px rgba(202,164,93,.26); }
+.btn-magnetic {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--sand);
+  background: rgba(11,31,56,.72);
+  border: 1px solid rgba(243,234,213,.16);
+  transition: transform .5s cubic-bezier(.16,1,.3,1), border-color .4s ease, background .4s ease;
+  will-change: transform;
+}
+.btn-magnetic:hover { border-color: rgba(242,210,117,.4); background: rgba(18,44,76,.88); }
+.mag-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  background: radial-gradient(140px circle at var(--gx, 50%) var(--gy, 50%), rgba(242,210,117,.25), transparent 70%);
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+.btn-magnetic:hover .mag-glow { opacity: 1; }
+.mag-text { position: relative; z-index: 1; display: inline-flex; }
+.mag-ch { display: inline-block; transition: transform .35s cubic-bezier(.34,1.56,.64,1), color .35s ease; }
+.btn-magnetic .btn-arrow { position: relative; z-index: 1; }
 .btn-secondary {
   min-height: auto;
   padding: 0;
@@ -473,7 +497,7 @@ p { color: var(--sand-soft); line-height: 1.72; }
   .eyebrow, .section-label { font-size: .64rem; letter-spacing: .17em; }
   .hero-copy p { font-size: .96rem; line-height: 1.58; }
   .hero-actions { width: 100%; }
-  .btn-primary { width: 100%; min-height: 52px; }
+  .btn-primary, .btn-magnetic { width: 100%; min-height: 52px; }
   .hero-panel { border-radius: 24px; padding: 20px; }
   .hero-panel h2 { font-size: 1.38rem; }
   .services-grid, .method-grid { grid-template-columns: 1fr; }
