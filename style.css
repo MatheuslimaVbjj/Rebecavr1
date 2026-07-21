@@ -328,6 +328,7 @@ p { color: var(--sand-soft); line-height: 1.72; }
 }
 .hero-panel-inner {
   position: relative;
+  text-align: center;
   transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
   transition: transform .4s cubic-bezier(.22,1,.36,1);
   will-change: transform;
@@ -380,12 +381,36 @@ p { color: var(--sand-soft); line-height: 1.72; }
 .visual-item-lg { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
 .visual-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .visual-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(3,10,22,.86), transparent 55%); }
-.visual-item figcaption { position: absolute; left: 14px; bottom: 12px; z-index: 1; color: var(--sand); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.visual-item figcaption { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 1; color: var(--sand); font-size: .64rem; font-weight: 700; line-height: 1.3; letter-spacing: .04em; text-transform: uppercase; overflow-wrap: break-word; }
 .difference-copy h2, .contact-copy h2 { max-width: 900px; margin: 18px 0 28px; }
-.accordion-list { display: grid; gap: 14px; }
-.accordion-list article { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line); }
-.accordion-list b { color: var(--gold-2); font-size: .88rem; }
-.accordion-list p { margin-bottom: 0; font-size: .95rem; }
+.accordion-list { display: grid; }
+.accordion-item { border-top: 1px solid var(--line); }
+.accordion-item:last-child { border-bottom: 1px solid var(--line); }
+.accordion-trigger {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 20px 0;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.accordion-trigger b { color: var(--gold-2); font-size: .88rem; transition: color .25s ease; }
+.accordion-trigger h3 { margin: 0; transition: color .25s ease; }
+.accordion-item:not(.is-open) .accordion-trigger:hover b,
+.accordion-item:not(.is-open) .accordion-trigger:hover h3 { color: var(--gold-2); }
+.accordion-icon { position: relative; width: 28px; height: 28px; border: 1px solid rgba(242,210,117,.32); border-radius: 50%; flex-shrink: 0; transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .25s ease; }
+.accordion-icon::before, .accordion-icon::after { content: ""; position: absolute; top: 50%; left: 50%; background: var(--gold-2); transform: translate(-50%, -50%); }
+.accordion-icon::before { width: 10px; height: 1px; }
+.accordion-icon::after { width: 1px; height: 10px; transition: opacity .25s ease; }
+.accordion-item.is-open .accordion-icon { transform: rotate(135deg); border-color: rgba(242,210,117,.5); }
+.accordion-panel { display: grid; grid-template-rows: 0fr; margin-left: 66px; opacity: 0; transition: grid-template-rows .4s cubic-bezier(.16,1,.3,1), opacity .3s ease; }
+.accordion-item.is-open .accordion-panel { grid-template-rows: 1fr; opacity: 1; }
+.accordion-panel p { overflow: hidden; margin: 0 0 20px; font-size: .95rem; }
 .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .method-step { min-height: 240px; padding: 24px; border: 1px solid rgba(243,234,213,.14); border-radius: 22px; background: linear-gradient(180deg, rgba(11,31,56,.58), rgba(3,10,22,.42)); backdrop-filter: blur(14px); }
 .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 190px; gap: 18px; }
@@ -497,7 +522,8 @@ p { color: var(--sand-soft); line-height: 1.72; }
   .services-grid, .method-grid { grid-template-columns: 1fr; }
   .service-card, .method-step { min-height: auto; padding: 22px; }
   .service-card span, .method-step span { margin-bottom: 26px; }
-  .accordion-list article { grid-template-columns: 1fr; gap: 8px; }
+  .accordion-trigger { grid-template-columns: 34px 1fr auto; gap: 12px; }
+  .accordion-panel { margin-left: 46px; }
   .section { padding: 68px 0; }
   .project-card { min-height: 330px; }
   .scroll-cue { display: none; }

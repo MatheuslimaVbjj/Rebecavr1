@@ -171,6 +171,24 @@ if (!reducedMotion && !isTouch) {
   });
 }
 
+document.querySelectorAll('[data-accordion]').forEach((list) => {
+  const items = list.querySelectorAll('.accordion-item');
+  items.forEach((item) => {
+    const trigger = item.querySelector('.accordion-trigger');
+    trigger.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+      items.forEach((other) => {
+        other.classList.remove('is-open');
+        other.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+});
+
 navBackdrop?.addEventListener('click', closeMenu);
 document.querySelectorAll('.site-nav a').forEach((link) => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
